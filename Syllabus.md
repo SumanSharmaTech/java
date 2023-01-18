@@ -1,8 +1,8 @@
 # Advanced Java Programming
-Course Title: Advanced Java Programming Full Marks: 60 + 20 + 20
-Course No: CSC409 Pass Marks: 24 + 8 + 8
-Nature of the Course: Theory + Lab Credit Hrs: 3
-Semester: VII
+- Course Title: Advanced Java Programming Full Marks: 60 + 20 + 20
+- Course No: CSC409 Pass Marks: 24 + 8 + 8
+- Nature of the Course: Theory + Lab Credit Hrs: 3
+- Semester: VII
 ## Course Description:
 This course familiarizes students with basic as well as advanced features of Java Programming Emphasis will be given to GUI and event-driven programming,
 Database Connectivity, Socket Programming, Servlets and JSP Technology, and Distributed Programming.
