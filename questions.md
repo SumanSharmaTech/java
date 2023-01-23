@@ -16,7 +16,7 @@ Q6. create a swing GUI that inputs username and password. when the user clicks s
 
 
 
-# ch-3 Database
+# Chapter 3 Database
 
 Q1. Create a GUI frame that insert a record of a student in table with field id, name and roll.
 
