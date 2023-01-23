@@ -1,72 +1,54 @@
-import java.awt.*;
-import java.awt.event.*;
 import java.sql.*;
+import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
-public class insert extends JFrame {
-    private JLabel lblId, lblName, lblRoll;
-    private JTextField txtId, txtName, txtRoll;
-    private JButton btnInsert;
+class insert extends JFrame implements ActionListener {
+    JButton btn;
+    JLabel idLabel, nameLabel, rollLabel;
+    JTextField idField, nameField, rollField;
 
     public insert() {
-        setLayout(new GridLayout(4,2));
-        setTitle("Student Record Insertion");
+        setSize(400, 400);
+        setLayout(new GridLayout(4, 2));
 
-        lblId = new JLabel("ID:");
-        txtId = new JTextField(10);
+        idLabel = new JLabel("ID:");
+        idField = new JTextField();
 
-        add(lblId);
-        add(txtId);
+        nameLabel = new JLabel("Name:");
+        nameField = new JTextField();
 
-        lblName = new JLabel("Name:");
-        txtName = new JTextField(20);
-
-        add(lblName);
-        add(txtName);
-
-        lblRoll = new JLabel("Roll:");
-        txtRoll = new JTextField(10);
-
-        add(lblRoll);
-        add(txtRoll);
-
-        btnInsert = new JButton("Insert");
-
-        add(btnInsert);
-
-        btnInsert.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    try {
-                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                    } catch (ClassNotFoundException e1) {
-                        System.out.println("Error: Unable to load the driver class.");
-                        e1.printStackTrace();
-                    }           
-                    // jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]         
-                    // String url = "jdbc:sqlserver://CRAXER:1433;databaseName=studentdb;user=root;password=root"; // 3306 & 1433
-                    String url = "jdbc:sqlserver://CRAXER:1433;databaseName=studentdb;integratedSecurity=true;"; // 1433
-                    Connection con = DriverManager.getConnection(url);
-                    String sql = "INSERT INTO Student (id, name, roll) VALUES (?, ?, ?)";
-                    PreparedStatement stmt = con.prepareStatement(sql);
-                    stmt.setString(1, txtId.getText());
-                    stmt.setString(2, txtName.getText());
-                    stmt.setString(3, txtRoll.getText());
-                    stmt.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Record inserted successfully!");
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
-                }
-            }
-        });
-
-        setSize(300, 150);
+        rollLabel = new JLabel("Roll:");
+        rollField = new JTextField();
+        btn = new JButton("save");
+        btn.addActionListener(this);
+        add(idLabel);
+        add(idField);
+        add(nameLabel);
+        add(nameField);
+        add(rollLabel);
+        add(rollField);
+        add(btn);
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int id = Integer.parseInt(idField.getText());
+        String name = nameField.getText();
+        int roll = Integer.parseInt(rollField.getText());
+
+        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=demoDB;user=root;password=root";
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "INSERT INTO Student (ID, Name, Roll) VALUES ('" + id + "','" + name + "','" + roll + "')";
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException er) {
+            er.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
         new insert();
     }
 }
-
-// java -cp C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar insert

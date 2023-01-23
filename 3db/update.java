@@ -3,34 +3,41 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-class delete extends JFrame implements ActionListener {
+class update extends JFrame implements ActionListener {
     JButton btn;
-    JLabel idLabel, nameLabel, rollLabel;
-    JTextField idField, nameField, rollField;
+    JLabel idLabel, nameLabel;
+    JTextField idField, nameField;
 
-    public delete() {
+    public update() {
         setSize(400, 400);
-        setLayout(new GridLayout(2, 2));
+        setLayout(new GridLayout(3, 2));
 
         idLabel = new JLabel("ID:");
         idField = new JTextField();
 
-        btn = new JButton("Delete");
+        nameLabel = new JLabel("Name:");
+        nameField = new JTextField();
+
+        
+        btn = new JButton("Modify");
         btn.addActionListener(this);
         add(idLabel);
         add(idField);
+        add(nameLabel);
+        add(nameField);
+       
         add(btn);
         setVisible(true);
     }
 
     public void actionPerformed(ActionEvent e) {
         int id = Integer.parseInt(idField.getText());
-        
+        String name = nameField.getText();
 
         String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=demoDB;user=root;password=root";
         try (Connection conn = DriverManager.getConnection(url)) {
-            String sql = "DELETE FROM Student WHERE ID = " + id;
-            Statement stmt = conn.createStatement();
+            String sql = "UPDATE Student SET Name = '" + name + "' WHERE ID = " + id;
+			Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);
 
         } catch (SQLException er) {
@@ -39,6 +46,6 @@ class delete extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new delete();
+        new update();
     }
 }
