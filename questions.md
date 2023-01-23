@@ -16,12 +16,10 @@ Q6. create a swing GUI that inputs username and password. when the user clicks s
 
 
 
-# Database
+# ch-3 Database
 
 Q1. Create a GUI frame that insert a record of a student in table with field id, name and roll.
 
-
 Q2. Create a GUI frame that deletes the associated record based on the id entered in textfield.
-
 
 Q3. Create a GUI frame that update the name of student based on ID. Both ID and name should be entered by user.
