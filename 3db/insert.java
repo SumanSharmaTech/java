@@ -13,21 +13,25 @@ public class insert extends JFrame {
         setTitle("Student Record Insertion");
 
         lblId = new JLabel("ID:");
-        add(lblId);
         txtId = new JTextField(10);
+
+        add(lblId);
         add(txtId);
 
         lblName = new JLabel("Name:");
-        add(lblName);
         txtName = new JTextField(20);
+
+        add(lblName);
         add(txtName);
 
         lblRoll = new JLabel("Roll:");
-        add(lblRoll);
         txtRoll = new JTextField(10);
+
+        add(lblRoll);
         add(txtRoll);
 
         btnInsert = new JButton("Insert");
+
         add(btnInsert);
 
         btnInsert.addActionListener(new ActionListener() {
@@ -38,9 +42,10 @@ public class insert extends JFrame {
                     } catch (ClassNotFoundException e1) {
                         System.out.println("Error: Unable to load the driver class.");
                         e1.printStackTrace();
-                    }                    
+                    }           
+                    // jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]         
                     // String url = "jdbc:sqlserver://CRAXER:1433;databaseName=studentdb;user=root;password=root"; // 3306 & 1433
-                    String url = "jdbc:sqlserver://CRAXER:1433;databaseName=studentdb;integratedSecurity=true;";
+                    String url = "jdbc:sqlserver://CRAXER:1433;databaseName=studentdb;integratedSecurity=true;"; // 1433
                     Connection con = DriverManager.getConnection(url);
                     String sql = "INSERT INTO Student (id, name, roll) VALUES (?, ?, ?)";
                     PreparedStatement stmt = con.prepareStatement(sql);
@@ -63,3 +68,5 @@ public class insert extends JFrame {
         new insert();
     }
 }
+
+// java -cp C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar insert

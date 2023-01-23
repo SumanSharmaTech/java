@@ -19,8 +19,24 @@ Q6. create a swing GUI that inputs username and password. when the user clicks s
 # Chapter 3 Database
 # I'm using
 - MS SQL Server 2022
-- Java 16.0.2
+- Java 11, JDK 18.9, JRE 18.9
 - mssql-jdbc-11.2.3.jre18
+# This will help you to choose yours
+    - 49 = Java 5
+    - 50 = Java 6
+    - 51 = Java 7
+    - 52 = Java 8
+    - 53 = Java 9
+    - 54 = Java 10
+    - 55 = Java 11
+    - 56 = Java 12
+    - 57 = Java 13
+    - 58 = Java 14
+    - 59 = Java 15
+    - 60 = Java 16
+    - 61 = Java 17
+    - 62 = Java 18
+    - 63 = Java 19
 
 Q1. Create a GUI frame that insert a record of a student in table with field id, name and roll.
 
