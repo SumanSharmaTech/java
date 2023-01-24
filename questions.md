@@ -19,8 +19,10 @@ Q6. create a swing GUI that inputs username and password. when the user clicks s
 # Chapter 3 Database
 # I'm using
 - MS SQL Server 2022
-- Java 11, JDK 18.9, JRE 18.9
-- mssql-jdbc-11.2.3.jre18
+- Java 11, JDK 11, JRE 11
+- mssql-jdbc-11.2.3.jre11
+# Add driver in
+ - C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu
 # This will help you to choose yours
     - 49 = Java 5
     - 50 = Java 6

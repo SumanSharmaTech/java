@@ -56,7 +56,7 @@ class insert extends JFrame implements ActionListener {
 
 
 // CLASSPATH
-// set classpath=%classpath%;.;
 // C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar
 
-// java -cp C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar:. insert
+// run set classpath=%classpath%;.; every time when compiling the codes.
+
