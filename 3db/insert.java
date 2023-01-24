@@ -9,18 +9,18 @@ class insert extends JFrame implements ActionListener {
     JTextField idField, nameField, rollField;
 
     public insert() {
-        setSize(400, 400);
+        setSize(400, 200);
         setLayout(new GridLayout(4, 2));
 
-        idLabel = new JLabel("ID:");
+        idLabel = new JLabel("ID");
         idField = new JTextField();
 
-        nameLabel = new JLabel("Name:");
+        nameLabel = new JLabel("Name");
         nameField = new JTextField();
 
-        rollLabel = new JLabel("Roll:");
+        rollLabel = new JLabel("Roll no.");
         rollField = new JTextField();
-        btn = new JButton("save");
+        btn = new JButton("Insert");
         btn.addActionListener(this);
         add(idLabel);
         add(idField);
@@ -37,9 +37,10 @@ class insert extends JFrame implements ActionListener {
         String name = nameField.getText();
         int roll = Integer.parseInt(rollField.getText());
 
-        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=demoDB;user=root;password=root";
+        // String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=studentdb;user=root;password=root";
+        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=studentdb;user=root;password=root";
         try (Connection conn = DriverManager.getConnection(url)) {
-            String sql = "INSERT INTO Student (ID, Name, Roll) VALUES ('" + id + "','" + name + "','" + roll + "')";
+            String sql = "INSERT INTO students (ID, Name, Roll) VALUES ('" + id + "','" + name + "','" + roll + "')";
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);
 
@@ -52,3 +53,10 @@ class insert extends JFrame implements ActionListener {
         new insert();
     }
 }
+
+
+// CLASSPATH
+// set classpath=%classpath%;.;
+// C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar
+
+// java -cp C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar:. insert

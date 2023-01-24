@@ -9,17 +9,17 @@ class update extends JFrame implements ActionListener {
     JTextField idField, nameField;
 
     public update() {
-        setSize(400, 400);
+        setSize(400, 200);
         setLayout(new GridLayout(3, 2));
 
-        idLabel = new JLabel("ID:");
+        idLabel = new JLabel("ID");
         idField = new JTextField();
 
-        nameLabel = new JLabel("Name:");
+        nameLabel = new JLabel("Name");
         nameField = new JTextField();
 
         
-        btn = new JButton("Modify");
+        btn = new JButton("Update");
         btn.addActionListener(this);
         add(idLabel);
         add(idField);
@@ -34,9 +34,9 @@ class update extends JFrame implements ActionListener {
         int id = Integer.parseInt(idField.getText());
         String name = nameField.getText();
 
-        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=demoDB;user=root;password=root";
+        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=studentdb;user=root;password=root";
         try (Connection conn = DriverManager.getConnection(url)) {
-            String sql = "UPDATE Student SET Name = '" + name + "' WHERE ID = " + id;
+            String sql = "UPDATE students SET Name = '" + name + "' WHERE ID = " + id;
 			Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);
 

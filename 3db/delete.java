@@ -9,10 +9,10 @@ class delete extends JFrame implements ActionListener {
     JTextField idField, nameField, rollField;
 
     public delete() {
-        setSize(400, 400);
+        setSize(400, 200);
         setLayout(new GridLayout(2, 2));
 
-        idLabel = new JLabel("ID:");
+        idLabel = new JLabel("ID");
         idField = new JTextField();
 
         btn = new JButton("Delete");
@@ -27,9 +27,9 @@ class delete extends JFrame implements ActionListener {
         int id = Integer.parseInt(idField.getText());
         
 
-        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=demoDB;user=root;password=root";
+        String url = "jdbc:sqlserver://localhost:1433;integratedSecurity=false;encrypt=false;trustServerCertificate=true;databaseName=studentdb;user=root;password=root";
         try (Connection conn = DriverManager.getConnection(url)) {
-            String sql = "DELETE FROM Student WHERE ID = " + id;
+            String sql = "DELETE FROM students WHERE ID = " + id;
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);
 
