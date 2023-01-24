@@ -23,6 +23,8 @@ Q6. create a swing GUI that inputs username and password. when the user clicks s
 - mssql-jdbc-11.2.3.jre11
 # Add driver in
  - C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu
+ - classpath C:\Program Files\Microsoft JDBC DRIVER 11.2 for SQL Server\sqljdbc_11.2\enu\mssql-jdbc-11.2.3.jre11.jar;working/dir;
+
 # This will help you to choose yours
     - 49 = Java 5
     - 50 = Java 6
