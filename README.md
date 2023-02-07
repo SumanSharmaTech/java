@@ -10,6 +10,7 @@ I hope that these assignments will be useful for other students taking the same 
 - Week 2: Layout Management & simple UI
 - Week 3: GUI using Java AWT (Abstract Window Toolkit)
 - Week 4: Gui using swing
+- Week 5: Database & Network
 
 ## Getting Started
 
