@@ -47,3 +47,8 @@ Q1. Create a GUI frame that insert a record of a student in table with field id,
 Q2. Create a GUI frame that deletes the associated record based on the id entered in textfield.
 
 Q3. Create a GUI frame that update the name of student based on ID. Both ID and name should be entered by user.
+
+
+ch - 5
+
+Q1. wap to find the sum and diff of two number using javaFX and grid plane.
